@@ -3,8 +3,7 @@ import { useCart } from "./Cart";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 export const CartPage = () => {
-  const { cartItems, removeItem, increaseQuantity, decreaseQuantity } =
-    useCart();
+  const { cartItems, removeItem, increaseQuantity, decreaseQuantity } = useCart();
 
   if (cartItems.length === 0) {
     return (
@@ -18,7 +17,7 @@ export const CartPage = () => {
     <Container>
       <h2 className="my-4">Your Cart</h2>
       {cartItems.map((item) => (
-        <Row key={item.id} className="mb-4">
+        <Row key={item.uniqueId} className="mb-4">
           <Col md={4}>
             <img src={item.image1} alt={item.name} className="img-fluid" />
           </Col>
@@ -43,9 +42,7 @@ export const CartPage = () => {
               <div>
                 <Button
                   variant="secondary"
-                  onClick={() =>
-                    alert("You dont have buy now option at the moment")
-                  }
+                  onClick={() => alert("You don't have a buy now option at the moment")}
                 >
                   Buy Now
                 </Button>
