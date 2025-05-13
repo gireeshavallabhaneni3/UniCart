@@ -62,111 +62,111 @@ export const Navbar = ({ isLoggedIn, setIsLoggedIn, searchQuery,setSearchQuery})
                   aria-labelledby="navbarDropdown"
                 >
                   <li>
-                    <a className="dropdown-item" href="/mobiles">
+                    <Link className="dropdown-item" href="/mobiles">
                       Mobiles & Tablets
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/laptops">
+                    <Link className="dropdown-item" href="/laptops">
                       Laptops & Computers
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/appliances">
+                    <Link className="dropdown-item" href="/appliances">
                       Home Appliances
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/tv">
+                    <Link className="dropdown-item" href="/tv">
                       Televisions
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/audio">
+                    <Link className="dropdown-item" href="/audio">
                       Audio Devices
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/menfashion">
+                    <Link className="dropdown-item" href="/menfashion">
                       Fashion for Men
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/womenfashion">
+                    <Link className="dropdown-item" href="/womenfashion">
                       Fashion for Women
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/kidswearfashion">
+                    <Link className="dropdown-item" href="/kidswearfashion">
                       Kids' Wear
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/kitchen">
+                    <Link className="dropdown-item" href="/kitchen">
                       Kitchen Essentials
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/beauty">
+                    <Link className="dropdown-item" href="/beauty">
                       Beauty & Personal Care
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/furniture">
+                    <Link className="dropdown-item" href="/furniture">
                       Furniture
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/fitness">
+                    <Link className="dropdown-item" href="/fitness">
                       Fitness & Sports
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/books">
+                    <Link className="dropdown-item" href="/books">
                       Books & Stationery
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/gaming">
+                    <Link className="dropdown-item" href="/gaming">
                       Gaming
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/automobile">
+                    <Link className="dropdown-item" href="/automobile">
                       Automobile Accessories
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/groceries">
+                    <Link className="dropdown-item" href="/groceries">
                       Groceries
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/pet">
+                    <Link className="dropdown-item" href="/pet">
                       Pet Supplies
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/travel">
+                    <Link className="dropdown-item" href="/travel">
                       Travel & Luggage
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/decor">
+                    <Link className="dropdown-item" href="/decor">
                       Home Decor
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/accessories">
+                    <Link className="dropdown-item" href="/accessories">
                       Watches & Accessories
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
-              <a className="nav-link" href="/cart">
+              <Link className="nav-link" href="/cart">
                 <i className="bi bi-cart"></i>
                 <span className="badge bg-danger">{totalQuantity}</span>
-              </a>
+              </Link>
             </ul>
             <form className="d-flex">
               <input
