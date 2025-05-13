@@ -4,7 +4,12 @@ import React from "react";
 import { useCart } from "./Cart";
 import { Link } from "react-router-dom";
 
-export const Navbar = ({ isLoggedIn, setIsLoggedIn, searchQuery,setSearchQuery}) => {
+export const Navbar = ({
+  isLoggedIn,
+  setIsLoggedIn,
+  searchQuery,
+  setSearchQuery,
+}) => {
   const { cartItems } = useCart();
   const totalQuantity = cartItems.reduce(
     (total, item) => total + item.quantity,
@@ -62,111 +67,111 @@ export const Navbar = ({ isLoggedIn, setIsLoggedIn, searchQuery,setSearchQuery})
                   aria-labelledby="navbarDropdown"
                 >
                   <li>
-                    <Link className="dropdown-item" href="/mobiles">
+                    <a className="dropdown-item" href="/mobiles">
                       Mobiles & Tablets
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/laptops">
+                    <a className="dropdown-item" href="/laptops">
                       Laptops & Computers
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/appliances">
+                    <a className="dropdown-item" href="/appliances">
                       Home Appliances
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/tv">
+                    <a className="dropdown-item" href="/tv">
                       Televisions
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/audio">
+                    <a className="dropdown-item" href="/audio">
                       Audio Devices
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/menfashion">
+                    <a className="dropdown-item" href="/menfashion">
                       Fashion for Men
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/womenfashion">
+                    <a className="dropdown-item" href="/womenfashion">
                       Fashion for Women
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/kidswearfashion">
+                    <a className="dropdown-item" href="/kidswearfashion">
                       Kids' Wear
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/kitchen">
+                    <a className="dropdown-item" href="/kitchen">
                       Kitchen Essentials
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/beauty">
+                    <a className="dropdown-item" href="/beauty">
                       Beauty & Personal Care
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/furniture">
+                    <a className="dropdown-item" href="/furniture">
                       Furniture
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/fitness">
+                    <a className="dropdown-item" href="/fitness">
                       Fitness & Sports
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/books">
+                    <a className="dropdown-item" href="/books">
                       Books & Stationery
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/gaming">
+                    <a className="dropdown-item" href="/gaming">
                       Gaming
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/automobile">
+                    <a className="dropdown-item" href="/automobile">
                       Automobile Accessories
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/groceries">
+                    <a className="dropdown-item" href="/groceries">
                       Groceries
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/pet">
+                    <a className="dropdown-item" href="/pet">
                       Pet Supplies
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/travel">
+                    <a className="dropdown-item" href="/travel">
                       Travel & Luggage
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/decor">
+                    <a className="dropdown-item" href="/decor">
                       Home Decor
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/accessories">
+                    <a className="dropdown-item" href="/accessories">
                       Watches & Accessories
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </li>
-              <Link className="nav-link" href="/cart">
+              <a className="nav-link" href="/cart">
                 <i className="bi bi-cart"></i>
                 <span className="badge bg-danger">{totalQuantity}</span>
-              </Link>
+              </a>
             </ul>
             <form className="d-flex">
               <input
@@ -182,20 +187,48 @@ export const Navbar = ({ isLoggedIn, setIsLoggedIn, searchQuery,setSearchQuery})
               </button>
               {/* Profile Section */}
               {!isLoggedIn ? (
-                <Link to="/signin" className="btn btn-outline-light" style={{width: "180px"}}>
+                <a
+                  href="/signin"
+                  className="btn btn-outline-light"
+                  style={{ width: "180px" }}
+                >
                   <i className="bi bi-person-circle"></i> Sign In
-                </Link>
+                </a>
               ) : (
                 <div className="dropdown">
-                  <button className="btn btn-secondary dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button
+                    className="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="profileDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
                     <i className="bi bi-person-circle"></i>
                   </button>
-                  <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                    <li><Link className="dropdown-item" to="/profile">My Profile</Link></li>
-                    <li><Link className="dropdown-item" to="/orders">My Orders</Link></li>
-                    <li><hr className="dropdown-divider" /></li>
+                  <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="profileDropdown"
+                  >
                     <li>
-                      <button className="dropdown-item" onClick={() => setIsLoggedIn(false)}>Logout</button>
+                      <Link className="dropdown-item" to="/profile">
+                        My Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/orders">
+                        My Orders
+                      </Link>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <button
+                        className="dropdown-item"
+                        onClick={() => setIsLoggedIn(false)}
+                      >
+                        Logout
+                      </button>
                     </li>
                   </ul>
                 </div>
