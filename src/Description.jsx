@@ -5,11 +5,31 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { useParams } from "react-router-dom";
 import { useCart } from "./Cart";
-import { AccessoriesDescriptionList, AppliancesDescriptionList, AudioDescriptionList, AutomobileDescriptionList, BeautyDescriptionList, BooksDescriptionList, DecorDescriptionList, DescriptionList, FitnessDescriptionList, FurnitureDescriptionList, GamingDescriptionList, GroceriesDescriptionList, KidawearFashionDescriptionList, KitchenDescriptionList, LaptopsDescriptionList, MenFashionDescriptionList, PetDescriptionList, TravelDescriptionList, TvDescriptionList, WomenFashionDescriptionList } from "./DescriptionList";
+import {
+  AccessoriesDescriptionList,
+  AppliancesDescriptionList,
+  AudioDescriptionList,
+  AutomobileDescriptionList,
+  BeautyDescriptionList,
+  BooksDescriptionList,
+  DecorDescriptionList,
+  DescriptionList,
+  FitnessDescriptionList,
+  FurnitureDescriptionList,
+  GamingDescriptionList,
+  GroceriesDescriptionList,
+  KidawearFashionDescriptionList,
+  KitchenDescriptionList,
+  LaptopsDescriptionList,
+  MenFashionDescriptionList,
+  PetDescriptionList,
+  TravelDescriptionList,
+  TvDescriptionList,
+  WomenFashionDescriptionList,
+} from "./DescriptionList";
 
 export const Description = () => {
   const { addToCart } = useCart();
-  // const product = getProductById(productId); // Implement this function to fetch product details
 
   const {
     phoneName,
@@ -32,7 +52,7 @@ export const Description = () => {
     accessoriesname,
     decorname,
     furniturename,
-  } = useParams(); // 👈 get phone name from URL
+  } = useParams();
 
   const allProducts = [
     ...DescriptionList,
@@ -56,6 +76,7 @@ export const Description = () => {
     ...DecorDescriptionList,
     ...FurnitureDescriptionList,
   ];
+
   const urlNames = [
     phoneName,
     laptopName,
@@ -77,12 +98,11 @@ export const Description = () => {
     accessoriesname,
     decorname,
     furniturename,
-  ].filter(Boolean); // remove undefined values
-  
+  ].filter(Boolean);
+
   const selectedItem = allProducts.find((item) =>
     urlNames.includes(item.name.toLowerCase().replace(/\s+/g, "-"))
   );
-  
 
   if (!selectedItem) {
     return <div>Phone not found</div>;
@@ -132,7 +152,7 @@ export const Description = () => {
           <p>{selectedItem.description}</p>
 
           <p>
-            <Button Primary onClick={handleAddToCart}>
+            <Button variant="primary" onClick={handleAddToCart}>
               Add to Cart
             </Button>
           </p>
