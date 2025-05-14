@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Orders = () => {
-  const userEmail = localStorage.getItem('userEmail'); // Get user email from localStorage
+  const userEmail = sessionStorage.getItem('userEmail'); // Get user email from sessionStorage
 
   return (
     <div className="container mt-5">

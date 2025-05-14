@@ -6,7 +6,7 @@ export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    const savedCart = localStorage.getItem('cartItems');
+    const savedCart = sessionStorage.getItem('cartItems');
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
@@ -47,7 +47,7 @@ const decreaseQuantity = (uniqueId) => {
   };
 
   useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
   return (

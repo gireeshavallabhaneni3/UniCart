@@ -8,11 +8,11 @@ export const SignIn = ({ setIsLoggedIn }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const storedEmail = localStorage.getItem("userEmail");
-    const storedPassword = localStorage.getItem("userPassword");
+    const storedEmail = sessionStorage.getItem("userEmail");
+    const storedPassword = sessionStorage.getItem("userPassword");
 
     if (email === storedEmail && password === storedPassword) {
-      localStorage.setItem("userEmail", email); // Optional
+      sessionStorage.setItem("userEmail", email); // Optional
       setIsLoggedIn(true);
       navigate("/");
     } else {

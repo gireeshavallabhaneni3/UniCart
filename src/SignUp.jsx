@@ -10,7 +10,7 @@ export const SignUp = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    const existingEmail = localStorage.getItem("userEmail");
+    const existingEmail = sessionStorage.getItem("userEmail");
     if (email === existingEmail) {
       alert("An account with this email already exists. Please sign in.");
       return;
@@ -22,8 +22,8 @@ export const SignUp = () => {
     }
 
     if (email && password) {
-      localStorage.setItem("userEmail", email);
-      localStorage.setItem("userPassword", password);
+      sessionStorage.setItem("userEmail", email);
+      sessionStorage.setItem("userPassword", password);
       alert("Account created successfully!");
       navigate("/signin");
     } else {

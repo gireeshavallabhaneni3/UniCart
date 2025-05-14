@@ -113,6 +113,7 @@ export const Description = () => {
       .toLowerCase()
       .replace(/\s+/g, "-")}`;
     addToCart({ ...selectedItem, quantity: 1, uniqueId });
+    alert(selectedItem.name + " added to cart");
   };
 
   return (
