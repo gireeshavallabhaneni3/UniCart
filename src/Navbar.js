@@ -4,7 +4,12 @@ import React from "react";
 import { useCart } from "./Cart";
 import { Link } from "react-router-dom";
 
-export const Navbar = ({ isLoggedIn, setIsLoggedIn, searchQuery,setSearchQuery}) => {
+export const Navbar = ({
+  isLoggedIn,
+  setIsLoggedIn,
+  searchQuery,
+  setSearchQuery,
+}) => {
   const { cartItems } = useCart();
   const totalQuantity = cartItems.reduce(
     (total, item) => total + item.quantity,
@@ -182,20 +187,48 @@ export const Navbar = ({ isLoggedIn, setIsLoggedIn, searchQuery,setSearchQuery})
               </button>
               {/* Profile Section */}
               {!isLoggedIn ? (
-                <Link to="/signin" className="btn btn-outline-light" style={{width: "180px"}}>
+                <Link
+                  to="/signin"
+                  className="btn btn-outline-light"
+                  style={{ width: "180px" }}
+                >
                   <i className="bi bi-person-circle"></i> Sign In
                 </Link>
               ) : (
                 <div className="dropdown">
-                  <button className="btn btn-secondary dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button
+                    className="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="profileDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
                     <i className="bi bi-person-circle"></i>
                   </button>
-                  <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                    <li><Link className="dropdown-item" to="/profile">My Profile</Link></li>
-                    <li><Link className="dropdown-item" to="/orders">My Orders</Link></li>
-                    <li><hr className="dropdown-divider" /></li>
+                  <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="profileDropdown"
+                  >
                     <li>
-                      <button className="dropdown-item" onClick={() => setIsLoggedIn(false)}>Logout</button>
+                      <Link className="dropdown-item" to="/profile">
+                        My Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/orders">
+                        My Orders
+                      </Link>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <button
+                        className="dropdown-item"
+                        onClick={() => setIsLoggedIn(false)}
+                      >
+                        Logout
+                      </button>
                     </li>
                   </ul>
                 </div>

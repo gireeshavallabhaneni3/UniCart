@@ -7,6 +7,11 @@ export const FurniturePage = ({ searchQuery }) => {
   const filteredItems = FurnitureList.filter((item) =>
     item.name?.toLowerCase().includes(searchQuery?.toLowerCase())
   );
+  const imageStyle = {
+    width: "100%",
+    height: "300px", // fixed height for card images
+    objectFit: "cover",
+  };
   return (
     <div className="row row-cols-1 row-cols-md-5 g-4">
       {filteredItems.map((item, index) => (
@@ -16,8 +21,8 @@ export const FurniturePage = ({ searchQuery }) => {
               <div className="card" style={{ width: "18rem" }}>
                 <img
                   src={item.image1}
-                  width={200}
-                  height={150}
+                  style={imageStyle}
+                  className="card-img-top"
                   alt={item.image1}
                 />
               </div>
@@ -25,21 +30,21 @@ export const FurniturePage = ({ searchQuery }) => {
             <Carousel.Item>
               <img
                 src={item.image2}
-                width={200}
-                height={150}
+                style={imageStyle}
+                className="card-img-top"
                 alt="First slide"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 src={item.image3}
-                width={200}
-                height={150}
+                style={imageStyle}
+                className="card-img-top"
                 alt="First slide"
               />
             </Carousel.Item>
           </Carousel>
-          <div className="card-body">
+          <div className="card-body mt-3">
             <h5 className="card-title">{item.name}</h5>
             <p className="card-text">{item.description}</p>
             <Link

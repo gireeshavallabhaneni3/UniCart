@@ -29,8 +29,7 @@ import {
 } from "./DescriptionList";
 
 export const Description = () => {
-  const { addToCart } = useCart();
-
+  const { cart = [], addToCart } = useCart();
   const {
     phoneName,
     laptopName,
@@ -112,10 +111,34 @@ export const Description = () => {
     const uniqueId = `${selectedItem.id}-${selectedItem.name
       .toLowerCase()
       .replace(/\s+/g, "-")}`;
-    addToCart({ ...selectedItem, quantity: 1, uniqueId });
-    alert(selectedItem.name + " added to cart");
+
+    const existingCartItem = cart.find((item) => item.uniqueId === uniqueId);
+
+    if (existingCartItem) {
+      const confirmAdd = window.confirm(
+        `${selectedItem.name} is already in the cart with quantity ${existingCartItem.quantity}. Do you want to add one more?`
+      );
+      if (!confirmAdd) return;
+    }
+
+    const updatedItem = {
+      ...selectedItem,
+      quantity: existingCartItem ? existingCartItem.quantity + 1 : 1,
+      uniqueId,
+    };
+
+    addToCart(updatedItem);
+
+    alert(
+      `${selectedItem.name} added to cart${existingCartItem ? " again" : ""}`
+    );
   };
 
+  const imageStyle = {
+    width: "100%",
+    height: "550px",
+    objectFit: "cover",
+  };
   return (
     <Container>
       <Row>
@@ -124,27 +147,30 @@ export const Description = () => {
             <Carousel.Item>
               <img
                 src={selectedItem.image1}
-                className="d-block w-100"
+                className="d-block card-img-top"
+                style={imageStyle}
                 alt="First slide"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 src={selectedItem.image2}
-                className="d-block w-100"
+                className="d-block card-img-top"
+                style={imageStyle}
                 alt="Second slide"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 src={selectedItem.image3}
-                className="d-block w-100"
+                className="d-block card-img-top"
+                style={imageStyle}
                 alt="Third slide"
               />
             </Carousel.Item>
           </Carousel>
         </Col>
-        <Col
+        {/* <Col
           className="d-flex flex-column justify-content-center align-items-center"
           xs={12}
           md={6}
@@ -161,6 +187,44 @@ export const Description = () => {
           <Button
             variant="secondary"
             onClick={() => alert("You dont have buy now option at the moment")}
+          >
+            Buy Now
+          </Button>
+        </Col> */}
+        <Col
+          className="d-flex flex-column justify-content-center align-items-center"
+          xs={12}
+          md={6}
+        >
+          <h1>{selectedItem.name}</h1>
+          <p>{selectedItem.description}</p>
+
+          {/* Show Price */}
+          <h4 className="text-success mb-3 ">${selectedItem.price}</h4>
+
+          {/* Show Features if available */}
+          {selectedItem.features && selectedItem.features.length > 0 && (
+            <div className="text-center w-100 ">
+              <h5>Key Features:</h5>
+              <ul className="d-flex flex-column justify-content-center align-items-center">
+                {selectedItem.features.map((feature, index) => (
+                  <li className="text-center" key={index}>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <p>
+            <Button variant="primary" onClick={handleAddToCart}>
+              Add to Cart
+            </Button>
+          </p>
+
+          <Button
+            variant="secondary"
+            onClick={() => alert("You don't have buy now option at the moment")}
           >
             Buy Now
           </Button>

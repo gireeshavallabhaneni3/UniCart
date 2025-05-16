@@ -28,7 +28,6 @@ import { GamingPage } from "./GamingPage";
 import { GroceriesPage } from "./GroceriesPage";
 import { KidawearFashionPage } from "./KidawearFashionPage";
 import { KitchenPage } from "./KitchenPage";
-import { Mapping } from "./Mapping";
 import { MenFashionPage } from "./MenFashionPage";
 import { PetPage } from "./PetPage";
 import { TravelPage } from "./TravelPage";
@@ -138,7 +137,6 @@ const App = () => {
         />
 
         {/* Mapping / Description Routes */}
-        <Route path="/mapping/description" element={<Mapping />} />
         <Route
           path="/mobiles/:phoneName/description"
           element={<Description />}
